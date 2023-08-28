@@ -9,6 +9,7 @@ let offset = 0;
 function PokeConvert(pokemon){
     return  `
     
+    <a href="stats.html" target="_blank">
     <li class="pokemon ${pokemon.type}">
 
          <span class="number">#${pokemon.number}</span>
@@ -27,6 +28,7 @@ function PokeConvert(pokemon){
 
         </div>
     </li>
+    </a>
 
 `
 }
