@@ -9,10 +9,10 @@ let offset = 0;
 function PokeConvert(pokemon){
     return  `
     
-    <a href="stats.html" target="_blank">
-    <li class="pokemon ${pokemon.type}">
+    <a href="stats.html?id=${pokemon.number}">
+    <li class="pokemon ${pokemon.type}" onclick="fetchPokemon(${pokemon.number})">
 
-         <span class="number">#${pokemon.number}</span>
+         <span class="number"></span>
          <span class="name">${pokemon.name}</span>
 
         <div class="detail">

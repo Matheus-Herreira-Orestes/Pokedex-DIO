@@ -45,11 +45,32 @@ function pokeCreate (pokemon){
     `
 }
 
-function birthPokemon (offset, limit) {
-    pokeApi.getPokemons(offset, limit).then((pokemon) => {
+
+
+const fetchPokemon = async (query1) =>{
+
+    const APIResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${query1}`);
+    
+    if (APIResponse.status == 200){
+        
+    const data = await APIResponse.json();
+
+    console.log(data)
+
+    return data;
+
+
+    }
+
+}
+
+
+
+  function birthPokemon (query1) {
+    fetchPokemon(query1).then((pokemon) => {
         const newHtml = pokeCreate(pokemon)
         all.innerHTML += newHtml
     })
 }
 
-birthPokemon(offset,limit)
+birthPokemon(query1)

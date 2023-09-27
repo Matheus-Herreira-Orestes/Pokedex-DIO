@@ -17,10 +17,10 @@ function convertDetail(pokeDetail){
 
     pokemon.hp = pokeDetail ['stats']['0']['base_stat']
     pokemon.attack = pokeDetail ['stats']['1']['base_stat']
-    pokemon.defense = pokeDetail ['stats']['2']['base_stat']
-    pokemon.special_attack = pokeDetail ['stats']['3']['base_stat']
-    pokemon.special_defense = pokeDetail ['stats']['4']['base_stat']
-    pokemon.speed = pokeDetail ['stats']['5']['base_stat']
+    pokemon.defense = pokeDetail['stats']['2']['base_stat']
+    pokemon.special_attack = pokeDetail['stats']['3']['base_stat']
+    pokemon.special_defense = pokeDetail['stats']['4']['base_stat']
+    pokemon.speed = pokeDetail['stats']['5']['base_stat']
     pokemon.weight = pokeDetail.weight
     pokemon.height = pokeDetail.height
 
@@ -29,11 +29,22 @@ function convertDetail(pokeDetail){
 }
 
 
+
+
+pokeApi.onePokemon = (data) =>{
+    return fetch(data.url)
+    .then((response) => response.json())
+    .then(convertDetail)
+}
+
+
+
 pokeApi.getPokemonDetail = (pokemon) => {
     return fetch(pokemon.url)
         .then((response) => response.json())
         .then(convertDetail)
 }
+
 
 pokeApi.getPokemons = (offset = 0, limit = 40) => {
     const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
@@ -46,3 +57,5 @@ pokeApi.getPokemons = (offset = 0, limit = 40) => {
         .then((pokemonsDetails) => pokemonsDetails)
             
 }
+
+
