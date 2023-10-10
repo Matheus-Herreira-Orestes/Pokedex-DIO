@@ -8,7 +8,7 @@ function pokeCreate (pokemon){
     return `
     <div class="container">
 
-        <div class="upper">
+        <div class="upper  ${pokemon.types[0].type.name}">
             <div class="header">
                 <h1>${pokemon.name}</h1>
                 <h1>#${pokemon.id}</h1>
